@@ -11,8 +11,17 @@
 		box-sizing: border-box;
 	}
 	
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+	
 	body::-webkit-scrollbar {
 		display: none;
+	}
+	
+	body {
+		line-height: 1.5;
 	}
 	
 	#app {
