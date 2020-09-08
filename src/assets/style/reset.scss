@@ -16,3 +16,7 @@ ol, ul {
 button, input {
 	font: inherit;
 }
+
+:focus {
+	outline: none;
+}
