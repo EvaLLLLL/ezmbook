@@ -11,11 +11,7 @@
 	import Vue from 'vue';
 	import {Component} from 'vue-property-decorator';
 	
-	@Component({
-		props:{
-			propMessage: String
-		}
-	})
+	@Component
 	export default class Types extends Vue {
 		type = '-';
 		
@@ -26,22 +22,6 @@
 			this.type = type;
 		}
 	}
-	// export default {
-	// 	name: 'Types',
-	// 	data() {
-	// 		return {
-	// 			type: '-'
-	// 		}
-	// 	},
-	// 	methods: {
-	// 		selectType(type) { // type只能是'-'或'+'
-	// 			if (type !== '-' && type !== '+') {
-	// 				throw new Error('type is unknown')
-	// 			}
-	// 			this.type = type
-	// 		}
-	// 	}
-	// }
 </script>
 
 <style lang="scss" scoped>
