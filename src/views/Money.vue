@@ -17,21 +17,6 @@
 	import Tags from '@/components/Money/Tags.vue';
 	import {Component, Watch} from 'vue-property-decorator';
 	
-	const recordList: Record[] = JSON.parse(window.localStorage.getItem('recordList') || '[]');
-	const version = window.localStorage.getItem('version') || '0';
-	if (version < '2.0') {
-		if (version === '1.0') {
-			// 数据库升级/数据迁移
-			recordList.forEach((record => {
-				record.createdAt = new Date(2020, 0, 1);
-			}));
-			// 保存数据
-			window.localStorage.setItem('recordList', JSON.stringify(recordList));
-		}
-	}
-	// 修改版本号
-	window.localStorage.setItem('version', '2.0');
-	
 	type Record = {
 		tags: string[];
 		notes: string;
