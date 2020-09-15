@@ -26,17 +26,12 @@
 		components: {Button}
 	})
 	export default class Labels extends Vue {
-		tags = tagListModel.data;
+		tags = window.tagList;
 		
 		createTag() {
-			const name = window.prompt('请输入标签名');
+			const name = window.prompt('请输出标签名');
 			if (name) {
-				const message = tagListModel.create(name);
-				if (message === 'duplicated') {
-					window.alert(`已经创建过${name}标签了`);
-				} else if (message === 'success') {
-					window.alert(`添加${name}标签成功`);
-				}
+				window.createTag(name);
 			}
 		}
 	}
@@ -63,8 +58,8 @@
 		}
 	}
 	.createTag-wrapper {
-			text-align: center;
-			padding: 16px;
-			margin-top: 28px;
+		text-align: center;
+		padding: 16px;
+		margin-top: 28px;
 	}
 </style>

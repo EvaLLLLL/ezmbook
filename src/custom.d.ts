@@ -6,11 +6,6 @@ type RecordItem = {
 	createdAt?: Date; // 类/构造函数
 }
 
-type Tag = {
-	id: string;
-	name: string;
-}
-
 type TagListModel = {
 	data: Tag[];
 	fetch: () => Tag[];
@@ -20,6 +15,12 @@ type TagListModel = {
 	save: () => void;
 }
 
+type Tag = {
+	id: string;
+	name: string;
+}
+
 interface Window {
 	tagList: Tag[];
+	createTag: (name: string) => void;
 }
