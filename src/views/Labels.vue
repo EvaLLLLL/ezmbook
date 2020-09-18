@@ -16,24 +16,23 @@
 </template>
 
 <script lang="ts">
-	import Vue from 'vue';
 	import {Component} from 'vue-property-decorator';
 	import Button from '@/components/Button.vue';
+	import {mixins} from 'vue-class-component';
+	import tagHelper from '@/mixins/tagHelper.ts';
 	
 	@Component({
-		components: {Button}
+		components: {Button},
 	})
-	export default class Labels extends Vue {
-		//TODO
-		tags = [] //store.tagList;
-		
-		createTag() {
-			const name = window.prompt('请输出标签名');
-			if (name) {
-				//TODO
-				// store.createTag(name);
-			}
+	export default class Labels extends mixins(tagHelper) {
+		get tags() {
+			return this.$store.state.tagList;
 		}
+		
+		beforeCreate() {
+			this.$store.commit('fetchTags');
+		}
+		
 	}
 
 </script>
