@@ -46,11 +46,13 @@
 </script>
 
 <style lang="scss" scoped>
-	.layout-content {
-		display: flex;
-		flex-direction: column-reverse;
-	}
-	.formWrapper {
-		padding: 12px 0;
+	::v-deep {
+		.layout-content {
+			display: flex;
+			flex-direction: column-reverse;
+		}
+		.formWrapper {
+			padding: 12px 0;
+		}
 	}
 </style>
