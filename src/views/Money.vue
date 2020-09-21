@@ -1,10 +1,13 @@
 <template>
 	<Layout class-prefix="layout">
-		<NumberPad :value.sync="record.amount" @submit="saveRecord"/>
+		<NumberPad :value.sync="record.amount"
+		           @submit="saveRecord"/>
 		<Tabs :data-source="recordTypeList"
 		      :value.sync="record.type"/>
 		<div class="formWrapper">
-			<FormItem @update:value="OnUpdateNotes" field-name="备注" placeholder="点击输入备注"/>
+			<FormItem @update:value="OnUpdateNotes"
+			          field-name="备注"
+			          placeholder="点击输入备注"/>
 		</div>
 		<Tags/>
 	</Layout>
