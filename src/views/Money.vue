@@ -5,11 +5,11 @@
 		<Tabs :data-source="recordTypeList"
 		      :value.sync="record.type"/>
 		<div class="formWrapper">
-			<FormItem @update:value="OnUpdateNotes"
-			          field-name="备注"
+			<FormItem field-name="备注"
+			          :value.sync="record.notes"
 			          placeholder="点击输入备注"/>
 		</div>
-		<Tags/>
+		<Tags @update:value="record.tags = $event"/>
 	</Layout>
 </template>
 
@@ -37,14 +37,16 @@
 			this.$store.commit('fetchRecords');
 		}
 		
-		OnUpdateNotes(value: string) {
-			this.record.notes = value;
-		}
-		
 		saveRecord() {
+			if(!this.record.tags || this.record.tags.length === 0) {
+				return window.alert('请至少选择一个标签');
+			}
 			this.$store.commit('createRecord', this.record);
+			if (this.$store.state.createRecordError === null) {
+				window.alert('添加成功');
+				this.record.notes = '';
+			}
 		}
-		
 	}
 </script>
 
